@@ -4,6 +4,7 @@
   "description": "Disable or re-enable workspace folders by toggling a .disabled path suffix in a .code-workspace file.",
   "version": "0.0.1",
   "publisher": "psychowood",
+  "license": "MIT",
   "engines": {
     "vscode": "^1.90.0"
   },
