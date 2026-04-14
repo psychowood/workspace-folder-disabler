@@ -1,0 +1,54 @@
+{
+  "name": "workspace-folders-disabler",
+  "displayName": "Workspace Folders Disabler",
+  "description": "Disable or re-enable workspace folders by toggling a .disabled path suffix in a .code-workspace file.",
+  "version": "0.0.1",
+  "publisher": "psychowood",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "workspaceFoldersDisabler.toggleFolder",
+        "title": "Workspace Folders Disabler: Toggle Folder"
+      },
+      {
+        "command": "workspaceFoldersDisabler.enableFolder",
+        "title": "Enable Workspace Folder"
+      },
+      {
+        "command": "workspaceFoldersDisabler.disableFolder",
+        "title": "Disable Workspace Folder"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "workspaceFoldersDisabler.enableFolder",
+          "group": "navigation@90",
+          "when": "explorerResourceIsFolder && resourcePath =~ /\\.disabled$/"
+        },
+        {
+          "command": "workspaceFoldersDisabler.disableFolder",
+          "group": "navigation@90",
+          "when": "explorerResourceIsFolder && !(resourcePath =~ /\\.disabled$/)"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.12",
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.5.4"
+  }
+}
